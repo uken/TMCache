@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage      = 'https://github.com/tumblr/TMCache'
   s.summary       = 'Fast parallel object cache for iOS and OS X.'
   s.authors       = { 'Justin Ouellette' => 'jstn@tumblr.com' }
-  s.source        = { :git => 'https://github.com/uken/TMCache', :tag => "#{s.version}" }
+  s.source        = { :git => 'https://github.com/uken/TMCache.git', :tag => "#{s.version}" }
   s.license       = { :type => 'Apache 2.0', :file => 'LICENSE.txt' }
   s.requires_arc  = true
   s.frameworks    = 'Foundation'
