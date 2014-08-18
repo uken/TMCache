@@ -71,6 +71,8 @@ NSString * const TMDiskCacheSharedName = @"TMDiskCacheShared";
 
         __weak TMDiskCache *weakSelf = self;
 
+        [self sharedTrashURL];
+
         dispatch_async(_queue, ^{
             TMDiskCache *strongSelf = weakSelf;
             [strongSelf createCacheDirectory];
@@ -203,12 +205,6 @@ NSString * const TMDiskCacheSharedName = @"TMDiskCacheShared";
     NSURL *uniqueTrashURL = [[TMDiskCache sharedTrashURL] URLByAppendingPathComponent:uniqueString];
     BOOL moved = [[NSFileManager defaultManager] moveItemAtURL:itemURL toURL:uniqueTrashURL error:&error];
     TMDiskCacheError(error);
-
-    if (!moved) {
-        error = nil;
-        moved = [[NSFileManager defaultManager] moveItemAtPath:[itemURL path] toPath:[uniqueTrashURL path] error:&error];
-        TMDiskCacheError(error);
-    }
 
     return moved;
 }
