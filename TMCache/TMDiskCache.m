@@ -71,7 +71,7 @@ NSString * const TMDiskCacheSharedName = @"TMDiskCacheShared";
 
         __weak TMDiskCache *weakSelf = self;
 
-        [self sharedTrashURL];
+        [TMDiskCache sharedTrashURL];
 
         dispatch_async(_queue, ^{
             TMDiskCache *strongSelf = weakSelf;
